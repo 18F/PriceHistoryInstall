@@ -11,6 +11,7 @@ a Vagrant file.
 
 You should in theory be able to pull this repo onto a local machine and perform:
 > vagrant up
+
 This will create a Vagrant instance of an Ubuntu box running a complete PriceHistory application.
 
 To log into the site, use:
