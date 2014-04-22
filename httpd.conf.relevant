@@ -1,0 +1,86 @@
+<VirtualHost *:80>
+	   ServerName pricespaidportal.org
+
+	   LogLevel warn
+
+	# Since we actually have two wsgi applications running, 
+	# we start them with separate urls.  However, we want 
+	# a user coming to the machine as "/" to always go to "/gui".
+	# A programmer hitting "/apisolr" should know what he or she is doing...
+	   RewriteEngine on
+	   RewriteRule   ^/$  /gui/  [R]
+
+	SetEnv P3APISALT 700elveswhalesong
+	SetEnv PricesPaidAPIUsername houstonUser0
+	SetEnv PricesPaidAPIPassword BLwWIj9i4sPxPfqZ9rs3QEbyd
+	SetEnv PricesPaidAPIBasicAuthUsername unused
+	SetEnv PricesPaidAPIBasicAuthPassword unused
+	SetEnv PYCAS_SECRET unused
+
+	   WSGIDaemonProcess PriceHistoryGUI user=www-data group=www-data processes=1 threads=5 python-path=/home/vagrant/PriceHistory/PriceHistoryGUI:/home/vagrant/PriceHistory home=/home/vagrant/PriceHistory/PriceHistoryGUI
+	   WSGIScriptAlias /gui /home/vagrant/PriceHistory/PriceHistoryGUI/app.wsgi/
+	    <Location /gui >
+		WSGIProcessGroup PriceHistoryGUI
+		WSGIApplicationGroup %{RESOURCE}
+		Order deny,allow
+		Allow from all
+	 AuthType Basic
+	 AuthName "Restricted Files"
+	 # (Following line optional)
+	 AuthBasicProvider file
+	 AuthUserFile /etc/apache2/passwd/passwords
+	# Require user "pricespaid"
+	    </Location>
+
+	  WSGIDaemonProcess PriceHistoryAPI user=www-data group=www-data processes=1 threads=5 python-path=/home/vagrant/PriceHistory/PriceHistoryAPI:/home/vagrant/PriceHistory home=/home/vagrant/PriceHistory/PriceHistoryAPI
+	   WSGIScriptAlias /apisolr /home/vagrant/PriceHistory/PriceHistoryAPI/app.wsgi/
+	    <Location /apisolr >
+	    WSGIProcessGroup PriceHistoryAPI
+		WSGIApplicationGroup %{RESOURCE}
+		Order deny,allow
+		Allow from all
+	 AuthType Basic
+	 AuthName "Restricted Files"
+	 # (Following line optional)
+	 AuthBasicProvider file
+	 AuthUserFile /etc/apache2/passwd/passwords
+	# Require user "pricespaid"
+	    </Location>
+
+
+	    Alias /js /home/vagrant/PriceHistory/js/
+	    <Directory "/home/vagrant/PriceHistory/js/">
+	    AllowOverride None
+	    Order deny,allow
+	    Allow from all
+		Options -Indexes
+	    </Directory>
+
+	    Alias /SlickGrid-master /home/vagrant/PriceHistory/SlickGrid-master/
+	    <Directory "/home/vagrant/PriceHistory/SlickGrid-master/">
+	    AllowOverride None
+	    Order deny,allow
+	    Allow from all
+		Options -Indexes
+	    </Directory>
+
+	    Alias /microApiUser /home/vagrant/PriceHistory/microApiUser/
+	    <Directory "/home/vagrant/PriceHistory/microApiUser/">
+	    AllowOverride None
+	    Order deny,allow
+	    Allow from all
+		Options -Indexes
+	    </Directory>
+
+
+	#    SSLEngine on
+	#    SSLCertificateFile /etc/apache2/ssl/apache.crt
+	#    SSLCertificateKeyFile /etc/apache2/ssl/apache.key
+	#    ErrorLog /var/log/apache2/error.log
+
+		# Possible values include: debug, info, notice, warn, error, crit,
+		# alert, emerg.
+		LogLevel debug
+		CustomLog /var/log/apache2/access.log combined
+	BufferedLogs Off
+ </VirtualHost>
