@@ -3,6 +3,8 @@ PriceHistoryInstall via Vagrant
 
 This is the installation materials for the PriceHistory project, which consists of several repos.
 
+Note: You must download and file the file solr-4.7.2.zip and put it in this directory.  This file is 
+too big to be worth duplicating into github.  That is the only thing you need beyond this repo to build a vagrant-implemented PriceHistory.
 
 This project exists to make it eaiser to install and set up a PriceHistory website.  It contains 
 a Vagrant file.
