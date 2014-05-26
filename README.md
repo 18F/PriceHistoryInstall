@@ -12,7 +12,10 @@ a Vagrant file.
 You should in theory be able to pull this repo onto a local machine and perform:
 > vagrant up
 
-This will create a Vagrant instance of an Ubuntu box running a complete PriceHistory application.
+The initial execution of this may take an hour or more depending on your internet connection as it builds virtual machine.
+
+This will create a Vagrant instance of an Ubuntu box running a complete PriceHistory application that should be reachable by browsing to: 
+http://localhost:4567 on your own machine.
 
 To log into the site, use:
 > houstonUser99
@@ -20,8 +23,18 @@ To log into the site, use:
 
 The current instance was planned for the upcoming [City of Houson Open Innovation Hackathon](http://www.houstonhackathon.com), so it is uses Houston-specific usernames right now.  However, all of the data at the site is completely public.  There is currently no Houston data on the site.
 
+To begin coding, perform "vagrant ssh" and you will be logged into YOUR personal vagrant Ubuntu virtual machine.  If you cd to "PriceHistory", you should be able to begin poking around the code, possibly making a git branch and pull request!
 
+Please contact <read.robert@gmail.com> for more information.
 
+Houston Hackathon
+-----------------
+
+For the Houston Hackahton, I have entered 18 issues into this github repo, of diverse difficulties and types.  However, my main goal is to do what I call Project White Fountain.  The purpose of this is to make PriceHistory the opposite of a "black hole" --- a white fountain --- that makes public price history ifnormation freely available.
+
+In order to do this, I believe we need to build an "ingest" API that allows anyone, but a municipality in particular, to freely publish to us price history.  We will also need to keep the registered data recorded in some way so that we can remove or disable the dataset.
+
+In addition to programming in Python, this project also requires a certain amount of documentation, marketing, and other non-programming tasks.  The goal is not just to code, but to build a useful product---and that always requires a diversity of talent.
 
 
 Demo Instance
