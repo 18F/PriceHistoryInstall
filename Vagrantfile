@@ -123,17 +123,17 @@ end
 
 $buildStructures = <<SCRIPT
 echo Building Structures
-sudo apt-get update
-sudo apt-get install default-jre
-sudo apt-get dist-upgrade
+sudo apt-get -y update
+sudo apt-get -y install default-jre
+sudo apt-get -y dist-upgrade
 # I must have the one true editor
-sudo apt-get install emacs
-sudo apt-get install unzip
-sudo apt-get install default-jre
+sudo apt-get -y install emacs
+sudo apt-get -y install unzip
+sudo apt-get -y install default-jre
 sudo a2enmod rewrite
-sudo apt-get install libapache2-mod-wsgi
+sudo apt-get -y install libapache2-mod-wsgi
 sudo service apache2 restart
-sudo apt-get install python-pip
+sudo apt-get -y install python-pip
 sudo pip install requests
 sudo pip install bottle
 sudo pip install solrpy
@@ -153,7 +153,7 @@ if [ ! -d "logs" ]; then
    mkdir logs
 fi
 sudo chmod o+w -R logs
-sudo apt-get install git
+sudo apt-get -y install git
 if [ ! -d "PriceHistoryGUI" ]; then
    sudo git clone https://github.com/18F/PriceHistoryGUI.git
 fi
@@ -187,6 +187,8 @@ sudo apachectl restart
 cd MorrisDataDecorator
 sudo chmod o+w *.out
 bash run_all.bash
+cd ../logs
+sudo chmod o+w *.log
 cd /home/vagrant/PriceHistory/solr-4.7.2/example
 java -jar /home/vagrant/PriceHistory/solr-4.7.2/example/start.jar >& solroutput.log &
 
