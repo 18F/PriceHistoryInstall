@@ -184,13 +184,14 @@ cp /home/vagrant/httpd.conf.relevant /etc/apache2/sites-enabled/000-default
 sudo chown -R www-data.www-data .
 sudo chown vagrant.vagrant -R solr-4.7.2
 sudo apachectl restart
+sudo chmod a+w MorrisDataDecorator
 cd MorrisDataDecorator
 sudo chmod o+w *.out
 bash run_all.bash
 cd ../logs
 sudo chmod o+w *.log
 cd /home/vagrant/PriceHistory/solr-4.7.2/example
-java -jar /home/vagrant/PriceHistory/solr-4.7.2/example/start.jar >& solroutput.log &
+sudo java -jar /home/vagrant/PriceHistory/solr-4.7.2/example/start.jar >& solroutput.log &
 
 # Since we need a connection to SOLR, we want to give it time to get started up...
 sleep 10

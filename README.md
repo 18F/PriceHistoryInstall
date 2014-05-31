@@ -30,6 +30,16 @@ Please contact <read.robert@gmail.com> for more information.
 Houston Hackathon
 -----------------
 
+This morning, I mysteriously have a permission problem in the vagrant file.  Probably it is my fault somehow, but to get vagrant to work, I actually have to:
+
+1) Do vagrant up.
+2) SSH to the vagrant machine with "vagrant ssh".
+3) Run SOLR as root: sudo java -jar /home/vagrant/PriceHistory/solr-4.7.2/example/start.jar >& solroutput.log &
+4) Start the MorrisDataDecorator by hand after this by going into the 
+MorrisDataDecorator directry and executing "bash run_all.bash".
+
+I will explain all this in person to anyone at the Hackathon.  Sorry for the inconvenience.
+
 For the Houston Hackahton, I have entered 18 issues into this github repo, of diverse difficulties and types.  However, my main goal is to do what I call Project White Fountain.  The purpose of this is to make PriceHistory the opposite of a "black hole" --- a white fountain --- that makes public price history ifnormation freely available.
 
 In order to do this, I believe we need to build an "ingest" API that allows anyone, but a municipality in particular, to freely publish to us price history.  We will also need to keep the registered data recorded in some way so that we can remove or disable the dataset.
