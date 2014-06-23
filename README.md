@@ -40,28 +40,23 @@ MorrisDataDecorator directry and executing "bash run_all.bash".
 
 I will explain all this in person to anyone at the Hackathon.  Sorry for the inconvenience.
 
-For the Houston Hackahton, I have entered 18 issues into this github repo, of diverse difficulties and types.  However, my main goal is to do what I call Project White Fountain.  The purpose of this is to make PriceHistory the opposite of a "black hole" --- a white fountain --- that makes public price history ifnormation freely available.
-
-In order to do this, I believe we need to build an "ingest" API that allows anyone, but a municipality in particular, to freely publish to us price history.  We will also need to keep the registered data recorded in some way so that we can remove or disable the dataset.
-
-In addition to programming in Python, this project also requires a certain amount of documentation, marketing, and other non-programming tasks.  The goal is not just to code, but to build a useful product---and that always requires a diversity of talent.
-
-
-Demo Instance
+Houston Hackathon
 -------------
 
-Although this repo exists to make it easy for you to install PriceHistory yourself, you can use the demo
-instance set up for Houston Hackathon:
+On June 1st (the National Day of Civic Hacking), I drove to Houston and participated in [Houston Open Innovation Hackathon](http://houstonhackathon.challengepost.com/submissions).
 
-[Try out PriceHistory](http://54.186.102.33/gui/)! 
+I had the pleasure of forming a team with Drew and David.  I created a not-yet-ready-for-prime-time data ingest API and GUI, and Drew and David created [Mr. CSV Transfomer](https://github.com/DeepInTheCode/mr-csv-transformer), a fork of "Mr. Data Transformer".  That project, taken togehter with my Ingest code, is a crude step toward being able to load data into PriceHistory without having to be a programmer at all.
 
-However, understand that this instance has some limitations.  At present it contains only a small amount of data taken from USASpending.org, which
-does NOT contain unit quantity information.  One of the main purposes of PriceHistory is to compare per-unit price and also to compare multiple 
-sources/vendors, so this demonstration is weak compared to an instance loaded with proper data.
+The Hackathon also encouraged the City of Houston to further evaluate this code.
 
-To log into this instance, please use the credentials:
 
-> houstonUser99
-> RpG0pRDyIrhbcBK82a3hqjvir
 
-(This instance has been created primarily to support the upcoming Houston Hackathon (see below)). Feel free to create your own test portfolios.
+Demo Instance is currently available only to Houston Employees
+-------------
+
+Due to limited resources, and the fact that Houston is currently evaluating this, I have dedicated my server specifically to Houston for the extent of their evaluation.
+
+[Try out PriceHistory --- except not now!](http://54.186.102.33/gui/)! 
+
+
+
