@@ -3,10 +3,10 @@ PriceHistoryInstall via Vagrant
 
 This is the installation materials for the PriceHistory project, which consists of several repos.
 
-Note: You must download and file the file solr-4.7.2.zip and put it in this directory.  This file is 
+Note: You must download and file the file solr-4.7.2.zip and put it in this directory.  This file is
 too big to be worth duplicating into github.  That is the only thing you need beyond this repo to build a vagrant-implemented PriceHistory.
 
-This project exists to make it eaiser to install and set up a PriceHistory website.  It contains 
+This project exists to make it eaiser to install and set up a PriceHistory website.  It contains
 a Vagrant file.
 
 You should in theory be able to pull this repo onto a local machine and perform:
@@ -14,7 +14,7 @@ You should in theory be able to pull this repo onto a local machine and perform:
 
 The initial execution of this may take an hour or more depending on your internet connection as it builds virtual machine.
 
-This will create a Vagrant instance of an Ubuntu box running a complete PriceHistory application that should be reachable by browsing to: 
+This will create a Vagrant instance of an Ubuntu box running a complete PriceHistory application that should be reachable by browsing to:
 http://localhost:4567 on your own machine.
 
 To log into the site, use:
@@ -35,7 +35,7 @@ This morning, I mysteriously have a permission problem in the vagrant file.  Pro
 1) Do vagrant up.
 2) SSH to the vagrant machine with "vagrant ssh".
 3) Run SOLR as root: sudo java -jar /home/vagrant/PriceHistory/solr-4.7.2/example/start.jar >& solroutput.log &
-4) Start the MorrisDataDecorator by hand after this by going into the 
+4) Start the MorrisDataDecorator by hand after this by going into the
 MorrisDataDecorator directry and executing "bash run_all.bash".
 
 I will explain all this in person to anyone at the Hackathon.  Sorry for the inconvenience.
@@ -56,7 +56,15 @@ Demo Instance is currently available only to Houston Employees
 
 Due to limited resources, and the fact that Houston is currently evaluating this, I have dedicated my server specifically to Houston for the extent of their evaluation.
 
-[Try out PriceHistory --- except not now!](http://54.186.102.33/gui/)! 
+[Try out PriceHistory --- except not now!](http://54.186.102.33/gui/)!
 
 
+
+### Public domain
+
+This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
+
+> This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+>
+> All contributions to this project will be relatedsed under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
 
